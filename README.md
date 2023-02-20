@@ -384,3 +384,80 @@ Where:
   }
 }
 ```
+
+## POST /api/v1/games/:id/flag
+- Flags/Unflags a tile in the selected game
+
+##### Required body parameters:
+```json
+{
+  "key_name": "X,Y",
+  "flag": <flag>
+}
+```
+##### Required header parameters (sample):
+```json
+{
+  Authorization: Bearer dmJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxIiwic2NwIjoidXNlciIsImF1ZCI6bnVsbCwiaWF0IjoxNjc2ODI5MTA1LCJleH
+}
+```
+Where:
+- `id`: [Integer] The ID of the game being played.
+
+- `key_name`: [String] A value corresponding to the coordinates of the tile to be open (clicked).
+  Example: `"0,0"` corresponds to line 1, column, 1
+
+- `flag`: [String] A value corresponding to the flag user wishes to add/remove.
+  Flag values can be: `nope` (default, no flags) | `question` | `red`
+
+```sh
+INFO: 
+- Calling the same endpoint on a tile flags and unflags it depending on the parameter
+```
+
+##### Response:
+
+16
+
+```json
+{
+  "success": true,
+  "message": "Flag: nope",
+  "data": {
+    "game_id": 4,
+    "flagged": "nope",
+    "id": 900,
+    "key_name": "14,14",
+    "near_bombs": 0,
+    "played": false,
+    "bomb": false,
+    "created_at": "2023-02-19T21:45:19.385Z",
+    "updated_at": "2023-02-19T21:54:45.530Z"
+  }
+}
+```
+
+##### Edge Cases:
+- User informs an invalid flag
+
+17
+
+```json
+{
+  "success": false,
+  "message": "No existing tile",
+  "data": []
+}
+```
+
+- User informs no flags
+
+18
+
+```json
+{
+  "success": false,
+  "message": "Missing flag",
+  "data": []
+}
+```
