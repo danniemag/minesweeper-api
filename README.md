@@ -12,7 +12,7 @@ _____________________
 Now you can perform requests to endpoints on base url [`localhost:3000`](http://localhost:3000).
 
 ```sh
-This project is available to be tested on the following URL: +++++++++
+This project is available to be tested on the following URL: https://minesweeper-dannie.herokuapp.com/
 ```
 _______________________
 
