@@ -10,10 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_02_19_231634) do
+ActiveRecord::Schema.define(version: 2023_02_19_235559) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "games", force: :cascade do |t|
+    t.integer "matrix", null: false
+    t.integer "level", default: 0, null: false
+    t.decimal "starting_time", default: "0.0", null: false
+    t.decimal "elapsed_time", default: "0.0", null: false
+    t.integer "status", default: 0, null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_games_on_user_id"
+  end
 
   create_table "jwt_denylists", force: :cascade do |t|
     t.string "jti", null: false
@@ -21,6 +33,18 @@ ActiveRecord::Schema.define(version: 2023_02_19_231634) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["jti"], name: "index_jwt_denylists_on_jti"
+  end
+
+  create_table "tiles", force: :cascade do |t|
+    t.string "key_name", null: false
+    t.integer "near_bombs", null: false
+    t.integer "flagged", default: 0
+    t.boolean "played", default: false
+    t.boolean "bomb", default: false
+    t.bigint "game_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["game_id"], name: "index_tiles_on_game_id"
   end
 
   create_table "users", force: :cascade do |t|
