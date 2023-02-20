@@ -14,7 +14,25 @@ Now you can perform requests to endpoints on base url [`localhost:3000`](http://
 ```sh
 This project is available to be tested on the following URL: +++++++++
 ```
-____________________________
+_______________________
+
+## Feature Overview
+
+| STATUS | FEATURE                                                                               |
+|--------|---------------------------------------------------------------------------------------|
+| yes    | Design and implement a documented RESTful API for the game                            |
+| yes    | When a cell with no adjacent mines is revealed, all adjacent squares will be revealed |
+| yes    | Ability to 'flag' a cell with a question mark or red flag                             |
+| yes    | Detect when game is over                                                              |
+| yes    | Persistence                                                                           |
+| yes    | Time tracking                                                                         |
+| yes    | Ability to start a new game and preserve/resume the old ones                          |
+| yes    | Ability to select the game parameters: number of rows, columns, and mines             |
+| yes    | Ability to support multiple users/accounts                                            |
+| yes    | URL where the game can be accessed and played                                         |
+| no     | Implement an API client library for the API designed above.                           |
+
+---
 
 ### Endpoint Overview
 
