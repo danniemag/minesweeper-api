@@ -202,3 +202,185 @@ INFO:
 ```
 ___
 
+## POST /api/v1/games/:id/play
+- Plays a move in the selected game (equivalent to tile clicking)
+
+##### Required body parameters:
+```json
+{
+  "key_name": "X,Y"
+}
+```
+##### Required header parameters (sample):
+```json
+{
+  Authorization: Bearer dmJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxIiwic2NwIjoidXNlciIsImF1ZCI6bnVsbCwiaWF0IjoxNjc2ODI5MTA1LCJleH
+}
+```
+Where:
+- `id`: [Integer] The ID of the game being played.
+
+- `key_name`: [String] A value corresponding to the coordinates of the tile to be open (clicked).
+  Example: `"0,0"` corresponds to line 1, column, 1
+
+##### Possible Responses:
+- Clicked on a bomb
+
+9
+
+```json
+{
+  "success": true,
+  "message": "BOOM! Game over",
+  "data": {
+    "game_id": 2,
+    "played": true,
+    "bomb": true,
+    "id": 446,
+    "key_name": "14,10",
+    "near_bombs": 0,
+    "flagged": "nope",
+    "created_at": "2023-02-20T03:39:41.453Z",
+    "updated_at": "2023-02-20T03:46:15.554Z"
+  }
+}
+```
+
+- CLicking on a zeroed tile.
+
+  (It may cause other zeroed tiles around to be closed.)
+
+10
+
+```json
+{
+  "success": true,
+  "message": "Tile zeroed. Total tiles open: 2",
+  "data": {
+    "game_id": 12,
+    "played": true,
+    "id": 756,
+    "key_name": "2,2",
+    "near_bombs": 0,
+    "flagged": "nope",
+    "bomb": false,
+    "created_at": "2023-02-20T04:20:55.463Z",
+    "updated_at": "2023-02-20T04:27:23.806Z"
+  }
+}
+```
+
+- CLicking on a tile near to a bomb
+
+11
+
+```json
+{
+  "success": true,
+  "message": "Near bombs: 2",
+  "data": {
+    "game_id": 12,
+    "played": true,
+    "id": 755,
+    "key_name": "2,1",
+    "near_bombs": 2,
+    "flagged": "nope",
+    "bomb": false,
+    "created_at": "2023-02-20T04:20:55.462Z",
+    "updated_at": "2023-02-20T04:30:44.181Z"
+  }
+}
+```
+
+- Reaching victory by clicking on the last possible tile
+
+12
+
+```json
+{
+  "success": true,
+  "message": "You WON the game",
+  "data": {
+    "game_id": 1,
+    "played": true,
+    "id": 1,
+    "key_name": "0,0",
+    "near_bombs": 0,
+    "flagged": "nope",
+    "bomb": false,
+    "created_at": "2023-02-20T04:20:55.462Z",
+    "updated_at": "2023-02-20T04:30:44.181Z"
+  }
+}
+```
+##### Edge Cases:
+- User informs a nonexisting tile
+
+13
+
+```json
+{
+  "success": false,
+  "message": "No existing tile",
+  "data": []
+}
+```
+
+- User tries to play a finished game (won/lost status)
+
+14
+
+```json
+{
+  "success": false,
+  "message": "Cannot restart a finished game",
+  "data": {
+    "id": 1,
+    "matrix": 15,
+    "level": "easy",
+    "starting_time": "0.0",
+    "elapsed_time": "0.0",
+    "status": "lost",
+    "user_id": 1,
+    "created_at": "2023-02-20T01:51:53.087Z",
+    "updated_at": "2023-02-20T01:51:53.087Z"
+  }
+}
+```
+## POST /api/v1/games/:id/pause
+- Pauses the selected game
+
+##### Required body parameters:
+```json
+{
+
+}
+```
+##### Required header parameters (sample):
+```json
+{
+  Authorization: Bearer dmJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxIiwic2NwIjoidXNlciIsImF1ZCI6bnVsbCwiaWF0IjoxNjc2ODI5MTA1LCJleH
+}
+```
+
+##### Response:
+
+15
+
+```json
+{
+  "success": true,
+  "message": "Game paused",
+  "data": {
+    "user_id": 1,
+    "status": "paused",
+    "id": 12,
+    "matrix": 3,
+    "level": "easy",
+    "starting_time": "82098.868641",
+    "elapsed_time": "918.586462",
+    "created_at": "2023-02-20T04:20:55.436Z",
+    "updated_at": "2023-02-20T04:42:42.372Z"
+  }
+}
+```
