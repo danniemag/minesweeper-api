@@ -139,7 +139,7 @@ module Api
           @game.update!(starting_time: Process.clock_gettime(Process::CLOCK_MONOTONIC), status: 1)
         else
           render_response(
-            false, 'Cannot restart a finished game', [], :forbidden
+            false, 'Cannot restart a finished game', @game, :forbidden
           ) and return
         end
       end
@@ -161,7 +161,8 @@ module Api
 
         adjacent.each do |adj|
           adj_tile = @game.tiles.find_by(key_name: adj)
-          adjacent.delete(adj_tile.key_name)
+          adjacent.delete(adj)
+          next if adj_tile.nil?
           if adj_tile.near_bombs > 0
             adj_tile.update_attribute(:played, true)
             @tiles_played += 1
