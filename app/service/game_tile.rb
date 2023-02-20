@@ -5,18 +5,27 @@ class GameTile
 
   #
   # @param board [BoardGenerator]
-  # @return [BoardGenerator]
+  # @param up_left [Tile]
+  # @param up [Tile]
+  # @param up_right [Tile]
+  # @param left [Tile]
+  # @param right [Tile]
+  # @param down_left [Tile]
+  # @param down [Tile]
+  # @param down_right [Tile]
+  # @param is_bomb [Boolean]
+  # @return [GameTile]
   #
-  def initialize(board, is_bomb)
+  def initialize(board, up_left, up, up_right, left, right, down_left, down, down_right, is_bomb)
     @adjacent = {
-      "up_left" => nil,
-      "up" => nil,
-      "up_right" => nil,
-      "left" => nil,
-      "right" => nil,
-      "down_left" => nil,
-      "down" => nil,
-      "down_right" => nil
+      "up_left" => up_left,
+      "up" => up,
+      "up_right" => up_right,
+      "left" => left,
+      "right" => right,
+      "down_left" => down_left,
+      "down" => down,
+      "down_right" => down_right
     }
     @board = board
     @is_bomb = is_bomb
