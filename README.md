@@ -72,7 +72,7 @@ _________________
 
 ##### Response:
 
-1
+![](https://s3.sa-east-1.amazonaws.com/daniellemagalhaes.com.br/minesweeper-img/1.png)
 
 ```json
 {
