@@ -44,12 +44,11 @@ _________________
 ##### Required body parameters:
 ```json
 {
-  "user": [ 
+  "user": 
     {
       "email": "dannie@mag.com",
       "password": "lorem@Ipsum"
     }
-  ]
 }
 ```
 
@@ -104,12 +103,11 @@ ___
 ##### Required body parameters:
 ```json
 {
-  "user": [ 
+  "user":
     {
       "email": "dannie@mag.com",
       "password": "lorem@Ipsum"
     }
-  ]
 }
 ```
 
