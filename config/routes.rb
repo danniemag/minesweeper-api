@@ -7,9 +7,11 @@ Rails.application.routes.draw do
 
   namespace 'api' do
     namespace 'v1' do
-      resources :games do
-        collection do
-          get :teste
+      resources :games, only: :create do
+        member do
+          post :play
+          post :pause
+          post :flag
         end
       end
     end
