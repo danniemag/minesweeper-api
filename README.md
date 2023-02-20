@@ -91,11 +91,11 @@ under the key 'Authorization'.
 
 It expires in 7 days.
 ```
-7
+![](https://s3.sa-east-1.amazonaws.com/daniellemagalhaes.com.br/minesweeper-img/7.png)
 
 ##### Edge Cases:
 - User already exists
-  2
+  ![](https://s3.sa-east-1.amazonaws.com/daniellemagalhaes.com.br/minesweeper-img/2.png)
 
 ```json
 {
@@ -105,7 +105,7 @@ It expires in 7 days.
 }
 ```
 - Missing parameters
-  3
+  ![](https://s3.sa-east-1.amazonaws.com/daniellemagalhaes.com.br/minesweeper-img/3.png)
 ```json
 {
   "success": false,
@@ -131,7 +131,7 @@ ___
 
 ##### Response:
 
-4
+![](https://s3.sa-east-1.amazonaws.com/daniellemagalhaes.com.br/minesweeper-img/4.png)
 
 ```json
 {
@@ -144,7 +144,7 @@ ___
 ##### Edge Cases:
 - User tries to log in with an nonexistent credential
 
-5
+![](https://s3.sa-east-1.amazonaws.com/daniellemagalhaes.com.br/minesweeper-img/5.png)
 
 ```json
 {
@@ -155,7 +155,7 @@ ___
 ```
 - User tries to make a request unlogged
 
-6
+![](https://s3.sa-east-1.amazonaws.com/daniellemagalhaes.com.br/minesweeper-img/6.png)
 ```json
 {
   "success": false,
@@ -193,7 +193,7 @@ Example: A table of matrix 5 will have 25 tiles (5 * 5 tiles).
 
 ##### Response:
 
-8
+![](https://s3.sa-east-1.amazonaws.com/daniellemagalhaes.com.br/minesweeper-img/8.png)
 
 ```json
 {
@@ -244,7 +244,7 @@ Where:
 ##### Possible Responses:
 - Clicked on a bomb
 
-9
+![](https://s3.sa-east-1.amazonaws.com/daniellemagalhaes.com.br/minesweeper-img/9.png)
 
 ```json
 {
@@ -268,7 +268,7 @@ Where:
 
   (It may cause other zeroed tiles around to be closed.)
 
-10
+![](https://s3.sa-east-1.amazonaws.com/daniellemagalhaes.com.br/minesweeper-img/10.png)
 
 ```json
 {
@@ -290,7 +290,7 @@ Where:
 
 - CLicking on a tile near to a bomb
 
-11
+![](https://s3.sa-east-1.amazonaws.com/daniellemagalhaes.com.br/minesweeper-img/11.png)
 
 ```json
 {
@@ -312,7 +312,7 @@ Where:
 
 - Reaching victory by clicking on the last possible tile
 
-12
+![](https://s3.sa-east-1.amazonaws.com/daniellemagalhaes.com.br/minesweeper-img/12.png)
 
 ```json
 {
@@ -334,7 +334,7 @@ Where:
 ##### Edge Cases:
 - User informs a nonexisting tile
 
-13
+![](https://s3.sa-east-1.amazonaws.com/daniellemagalhaes.com.br/minesweeper-img/13.png)
 
 ```json
 {
@@ -346,7 +346,7 @@ Where:
 
 - User tries to play a finished game (won/lost status)
 
-14
+![](https://s3.sa-east-1.amazonaws.com/daniellemagalhaes.com.br/minesweeper-img/14.png)
 
 ```json
 {
@@ -383,7 +383,7 @@ Where:
 
 ##### Response:
 
-15
+![](https://s3.sa-east-1.amazonaws.com/daniellemagalhaes.com.br/minesweeper-img/15.png)
 
 ```json
 {
@@ -435,7 +435,7 @@ INFO:
 
 ##### Response:
 
-16
+![](https://s3.sa-east-1.amazonaws.com/daniellemagalhaes.com.br/minesweeper-img/16.png)
 
 ```json
 {
@@ -458,7 +458,7 @@ INFO:
 ##### Edge Cases:
 - User informs an invalid flag
 
-17
+![](https://s3.sa-east-1.amazonaws.com/daniellemagalhaes.com.br/minesweeper-img/17.png)
 
 ```json
 {
@@ -470,7 +470,7 @@ INFO:
 
 - User informs no flags
 
-18
+![](https://s3.sa-east-1.amazonaws.com/daniellemagalhaes.com.br/minesweeper-img/18.png)
 
 ```json
 {
