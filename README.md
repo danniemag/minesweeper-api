@@ -73,7 +73,7 @@ under the key 'Authorization'.
 
 It expires in 7 days.
 ```
-
+7
 
 ##### Edge Cases:
 - User already exists
@@ -145,4 +145,60 @@ ___
   "email": null
 }
 ```
+## POST /api/v1/games/
+- Creates a brand new game for the user but does not start it.
+
+##### Required body parameters:
+```json
+{
+  "game[matrix]": <matrix>,
+  "game[level]": <level>
+}
+```
+##### Required header parameters (sample):
+```json
+{
+  Authorization: Bearer dmJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxIiwic2NwIjoidXNlciIsImF1ZCI6bnVsbCwiaWF0IjoxNjc2ODI5MTA1LCJleH
+}
+```
+Where:
+- `matrix`: [Integer] Value corresponding to the matrix of the board to be generated.
+Example: A table of matrix 5 will have 25 tiles (5 * 5 tiles).
+
+- `level`: [Integer] Value corresponding to the amount of bombs in the board, according to the following ratio:
+
+  0 = 'easy' - 30%
+  
+  1 = 'medium' - 50%
+
+  2 = 'hard' - 70%
+
+##### Response:
+
+8
+
+```json
+{
+  "success": true,
+  "message": "Game created!",
+  "data": {
+    "id": 1,
+    "matrix": 15,
+    "level": "easy",
+    "starting_time": "0.0",
+    "elapsed_time": "0.0",
+    "status": "stopped",
+    "user_id": 1,
+    "created_at": "2023-02-20T01:51:53.087Z",
+    "updated_at": "2023-02-20T01:51:53.087Z"
+  }
+}
+```
+
+```sh
+INFO: 
+- Any game created belongs to an user.
+- A game can be paused and resumed as long as its status is different of 'won' or 'lost' 
+```
+___
 
